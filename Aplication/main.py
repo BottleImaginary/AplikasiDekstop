@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import cv2
 from PIL import Image, ImageTk
+import os
 
 class CameraApp:
     def __init__(self):
@@ -18,6 +19,10 @@ class CameraApp:
         
         self.open_button = tk.Button(self.root, text="Pilih Gambar", command=self.open_file_dialog)
         self.open_button.pack(pady=10)
+
+        # Menambahkan tombol Generate
+        self.generate_button = tk.Button(self.root, text="Generate", command=self.generate_result)
+        self.generate_button.pack(pady=10)
         
         self.result_label = tk.Label(self.root, text="", font=("Helvetica", 18))
         self.result_label.pack()
@@ -56,6 +61,11 @@ class CameraApp:
         photo = ImageTk.PhotoImage(image)
         self.image_label.config(image=photo)
         self.image_label.photo = photo
+
+    # Menambahkan fungsi untuk tombol Generate
+    def generate_result(self):
+        print('Hasil deteksi botol dihasilkan')
+        # Anda perlu mengintegrasikan kode untuk deteksi botol
 
 # Membuat objek aplikasi kamera
 app = CameraApp()
